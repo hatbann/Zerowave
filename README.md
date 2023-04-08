@@ -1,46 +1,79 @@
-<img width="1411" alt="zerowave1" src="https://user-images.githubusercontent.com/116782324/226173433-35e251fc-8730-4ca1-88fa-b926046b994f.png"><img width="1425" alt="zerowave2" src="https://user-images.githubusercontent.com/116782324/226173390-b4533e67-59bc-41a1-a436-d2d92810a4c3.png">
+# Zerowave
 
-<h1> Zerowave </h1>
-🗓️ 진행 기간 : 2022.12.10 ~ 2022.12.29 <br />
-🙌 진행 인원 : 5명 (프론트엔드: 3명, 백엔드: 2명)
-<br />
-<h2> 프로젝트 소개 </h2>
-<h3> 1. 기획 의도 </h3>
-ZEROWAVE는 우리의 지구를 건강하게 지켜나가기위해, 언제 어디서든 제로웨이스트를 실천할수있도록 돕는 사이트입니다.<br />
-지도를 기반으로 제로웨이스트샵과 다회용기 사용이 가능한 장소 정보를 제공합니다.<br />
-사용자는 자신이 알고 있는 장소를 서비스의 지도에 추가할 수 있으며, 지도의 장소를 즐겨찾기 목록에 저장할 수 있습니다.<br />
-<h3> 2. 기능 정의 </h3>
+<p align="center">
+  <img src="./Imgs/main.png" width="800px">
+</p>
 
-|기능| 설명|
-|:---|:---|
-|메인 및 지도 페이지|1. Session 을 통해 로그인 여부에 따른 상이한 페이지 구현 <br>2. KakaoMap API를 이용한 지도 관련 컴포넌트 구현 <br /> 3. mySQL을 이용하여 서버의 DB를 가져와 지도에 구현|
-|회원가입/로그인 페이지|1. Sessio을 이용하여 회원정보 수정 시 사용자의 세션과 입력값을 서버로 전달해 사용자를 찾고 새로운 값으로 변경할 시 UserDB에 업데이트. <br>2. bcryptjs : 암호화 모듈을 통해 가입 시 서버에 실제 입력값이 아닌 암호화 된 비밀번호를 전달 <br /> 3. Axios & Sequelize : 사용자의 입력값을 서버로 전달하여 해당 사용자의 유무를 DB에서 조회한 후 결과값에 따라 UserDB에 새로운 값을 생성<br /> 
-|API| KakaoMap API <br />|
+## 프로젝트 소개
 
-<h3> 🤍 배포 사이트 🤍 </h3>
-<a href="http://13.125.15.23:8000/zerowave"> zerowave </a>
+<p align="justify">
+일상 속에서 폐기물을 줄일 수 있는 제로웨이스트를 쉽게 실천할 수 있게 도와주는 사이트를 제작하고자 했습니다.<br>
+제로웨이스트 샵의 위치 정보를 제공하고, 집에서 다회용 용기를 가져가 음식을 포장해 일회용품을 줄이는 용기내 챌린지의 유행을 전파합니다
+</p>
 
-<h1> ✍️ Stack </h1>
-<h4> 🌊 Front-end 🌊 </h4>
-<div>
-<img src="https://img.shields.io/badge/HTML-E34F26?style=flat&logo=TypeScript&logoColor=white"/>
-<img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=TypeScript&logoColor=white"/>
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/>
-</div>
-<h4> 🌊 Back-end 🌊 </h4>
-<div>
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=TypeScript&logoColor=white"/>
-<img src="https://img.shields.io/badge/Sequelize-52B0E7?style=flat&logo=TypeScript&logoColor=white"/>
-</div>
-<h4> 🌊 Collaboration 🌊 </h4>
-<div>
-<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/>
-<img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=Notion&logoColor=white"/>
-<img src="https://img.shields.io/badge/Slack-4A154B?style=flat&logo=Slack&logoColor=white"/>
- 
-</div>
-<h4> 🌊 API 🌊  </h4>
-<div>
- <a href="https://apis.map.kakao.com/"><img src="https://img.shields.io/badge/KakaoMap-FFCD00?style=flat&logo=Kakao&logoColor=white"/>
+<br>
 
-</div>
+### 기간
+
+2022/12/10 ~ 2022/12/29 (총 2주)
+<br>
+<br>
+
+### 기술 스택
+
+| JavaScript |  Html/Css  |   Node    | Kakao Map API |
+| :--------: | :--------: | :-------: | :-----------: |
+|   ![js]    | ![htmlCss] | ![nodejs] |   ![kakao]    |
+
+<br>
+
+## 구현 기능
+
+### 1. 회원가입/로그인
+
+- 기본적인 유저정보를 회원가입을 통해 저장할 수 있습니다.
+- 로그인을 하게되면 session에 유저정보를 저장해 로그인 정보가 남아있게 되며, 아이디 저장을 누르면 쿠키에 정보가 남게 됩니다.
+- 로그인 유무에 따라서 네비게이션 바의 구성이 달라집니다.
+
+<br>
+
+### 2. 제로웨이스트샵 / 용기내 챌린지샵 검색
+
+- 사용자가 지도를 움직여 제로웨이스트샵 및 용기내 챌린지 샵을 조회할 수 있습니다.
+- 카카오맵 API를 사용해 포커스된 위치의 위도경도값을 활용해 디비에 저장된 값을 불러옵니다.
+- 처음 Map페이지 접속시 제로웨이스트와 용기내 챌린지샵을 모두 보여주고 둘을 구분하기 위해 제로웨이브의 메인컬러로 나눠 UI를 구성했습니다.
+- 리스트의 버튼을 통해 제로웨이스트와 용기내 챌릭지샵 버튼의 value를 통해 지도에 보여지는 가게를 필터링했습니다.
+- 반응형으로 제작해 모바일 사이즈에서는 버튼으로 리스트를 Map위에 띄웠다가 가렸다가 해서 지도를 편리하게 움직일 수 있습니다.
+
+<br>
+
+### 3. 제로웨이스트 샵 / 용기내 챌린지샵 직접 추가
+
+- 사용자가 직접 용기내 챌린지샵을 추가할 수 있습니다.
+- 카카오 맵 API를 통해 가게를 검색하고 지도에서 클릭했을 때 이미 등록된 가게가 아니라면 +버튼이 뜨게 만들었습니다.
+- +버튼 클릭시 모달창을 통해 사용자는 제로웨이스트샵과 용기내 챌린지 샵 중 선택할 수 있으며 이때 시각성을 위해 배경색이 어두워집니다.
+- 등록한 가게는 세션에 저장된 유저정보를 통해 디비에서 값을 조회하고, 마이페이지의 내가 등록한 장소에 뿌려주게 됩니다.
+
+<br>
+
+### 4. 즐겨찾기
+
+- 회원가입한 사용자는 가게를 즐겨찾기 할 수 있습니다.
+- 즐겨찾기한 가게는 마이페이지의 즐겨찾기 버튼을 클릭할 시 보여지게 됩니다.
+- 제로웨이스트 샵과 용기내챌린지 샵의 구분을 위해 제로웨이스트의 메인컬러로 구분에 시각성을 높였습니다.
+
+<br>
+
+<!-- Stack Icon Refernces -->
+
+[js]: /Imgs/js.png
+[htmlcss]: /Imgs/html_css_logo.png
+[nodejs]: /Imgs/Node.js_logo.svg.png
+[kakao]: /Imgs/kakaoApi.png
+
+<br>
+<br>
+
+# 🖥 사이트
+
+http://13.209.80.78:8000/zerowave
